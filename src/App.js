@@ -4,7 +4,7 @@ import SingleColor from './SingleColor';
 import Values from 'values.js';
 
 function App() {
-  const [color, setColor] = useState('#9b2335');
+  const [color, setColor] = useState('');
   const [error, setError] = useState(false);
   const [list, setList] = useState(new Values('#9b2335').all(10));
 
@@ -25,29 +25,29 @@ function App() {
 
   return (
     <>
-      <section className="container">
-        <div className="mid">
+      <section className='container'>
+        <div className='mid'>
           <h3>color shades</h3>
           <form onSubmit={submitHandler}>
             <input
-              type="text"
+              type='text'
               value={color}
               onChange={(e) => {
                 setColor(e.target.value);
                 setError(false);
               }}
               onFocus={() => setError(false)}
-              placeholder="#9b2335"
+              placeholder='#9b2335'
               className={`${error && 'error'}`}
             />
-            <button type="submit" className="btn">
+            <button type='submit' className='btn'>
               submit
             </button>
           </form>
         </div>
         <p className={`errorText ${error && 'show'}`}>Invalid input</p>
       </section>
-      <section className="colors">
+      <section className='colors'>
         {list.map((color, index) => (
           <SingleColor
             key={index}
